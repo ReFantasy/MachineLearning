@@ -1,6 +1,12 @@
-//
-// Created by tandongliang on 2020/3/15.
-//
+/*
+ *    This file is under the MIT license.
+ *
+ *    Copyright (c) 2020 ReFantasy.cn
+ *
+ *    Created by tandongliang on 2020/3/15.
+ *
+ *    Description：
+ */
 
 #ifndef MACHINELEARNING_TEST_H
 #define MACHINELEARNING_TEST_H

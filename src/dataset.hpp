@@ -1,19 +1,21 @@
 /*
+ *    This file is under the MIT license.
  *
- * 
- *    通用数据集类
- * 
- *    模板参数 D 为样本数据部分的数据类型
- *    模板参数 L 为样本标签部分的数据类型
- *    一个样布数据和一个样本标签组成一条记录
- *    默认使用 vector 容器保存数据记录
- * 
- *    License: MIT
- * 
- *    ©TDL 2020.03.13
- *    Contact:refantasy.cn
- * 
+ *    Copyright (c) 2020 ReFantasy.cn
+ *
+ *    Created by tandongliang on 2020/3/15.
+ *
+ *    Description：
+ *
+ *      通用数据集类
+ *
+ *      模板参数 D 为样本数据部分的数据类型
+ *      模板参数 L 为样本标签部分的数据类型
+ *      一个样布数据和一个样本标签组成一条记录
+ *      默认使用 vector 容器保存数据记录
+ *
  */
+
 
 #ifndef __DATASET_HPP__
 #define __DATASET_HPP__

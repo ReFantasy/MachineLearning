@@ -1,16 +1,19 @@
 /*
+ *    This file is under the MIT license.
  *
- *    朴素贝叶斯分类器 李航《统计学习方法》代码实现
+ *    Copyright (c) 2020 ReFantasy.cn
  *
- *    该类仅用于研究贝叶斯分类算法，样本特征的不同特征默认采用同种数据类型（整型）表示
- *    样本类别标签必须是从零开始的连续整数
+ *    Created by tandongliang on 2020/3/15.
  *
- *    License: MIT
- * 
- *    ©TDL 2020.03.13
- *    Contact:refantasy.cn
- * 
+ *    Description：
+ *
+ *      朴素贝叶斯分类器 李航《统计学习方法》代码实现
+ *
+ *      该类仅用于研究贝叶斯分类算法，样本特征的不同特征默认采用同种数据类型（整型）表示
+ *      样本类别标签必须是从零开始的连续整数
  */
+
+
 
 #ifndef __BAYES_H__
 #define __BAYES_H__
