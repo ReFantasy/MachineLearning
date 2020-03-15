@@ -1,8 +1,13 @@
 #include <iostream>
+#include "./src/bayes.hpp"
+
+using namespace std;
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
-    
+
+    Example_4_2();
+
     return 0;
+
 }
