@@ -30,25 +30,30 @@ public:
 
     DataSet() = default;
 
-    /* *\brief 插入一个样本
-     *  \param d 样本特征向量
-     *  \param la 样本标签值
+    /**
+     * 插入一个样本
+     * @param d 样本特征向量
+     * @param la 样本标签值
      */
     void Insert(const value_type &d, const label_type &la)
     {
         data.push_back({d, la});
     }
 
-    /* *\brief 查找一个样本
-     *  \param n 样本索引
-     *  \return 一条记录引用
+    /**
+     * 查找一个样本
+     * @param n 样本索引
+     * @return 一条记录引用
      */
     const record_type& GetRecord(size_t n) const
     {
         return data[n];
     }
 
-    // 数据集大小
+    /**
+     *
+     * @return 数据集大小
+     */
     size_t size() const { return data.size(); }
 
 private:

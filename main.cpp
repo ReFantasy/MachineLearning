@@ -1,7 +1,9 @@
 #include <iostream>
-#include "./src/bayes.hpp"
+#include "test.h"
 
 using namespace std;
+
+
 
 int main()
 {

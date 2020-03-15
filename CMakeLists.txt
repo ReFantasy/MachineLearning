@@ -3,4 +3,4 @@ project(MachineLearning)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(MachineLearning main.cpp)
+add_executable(MachineLearning main.cpp test.cpp test.h)
