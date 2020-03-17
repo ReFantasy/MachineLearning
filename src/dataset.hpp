@@ -21,6 +21,7 @@
 #define __DATASET_HPP__
 #include <utility>
 #include <vector>
+#include <type_traits>
 
 template <typename D, typename L>
 class DataSet
@@ -52,6 +53,11 @@ public:
         return data[n];
     }
 
+    const  record_type& operator[](size_t n)const
+    {
+    	return data[n];
+    }
+
     /**
      *
      * @return 数据集大小
@@ -62,5 +68,7 @@ private:
     // 样本集合
     std::vector<record_type> data;
 };
+
+
 
 #endif //__DATASET_HPP__

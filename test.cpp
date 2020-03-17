@@ -8,7 +8,10 @@
  *    Description：
  */
 
+#include <type_traits>
 #include "test.h"
+#include "./src/tuple_helper.h"
+using namespace std;
 
 void Example_4_2()
 {
@@ -88,4 +91,57 @@ void Example_4_2()
     int Y = bayes.Pred(x);
     std::cout << "P(x=(2,S)) = ";
     std::cout << g(Y) << std::endl;
+}
+
+
+
+void test()
+{
+	// 定义数据特征
+	enum class Age:int{Young=0, Middle, Old};
+	enum class Work:int{Yes=0, No};
+	enum class House:int{Yes=0, No};
+	enum class Credit:int{Nice=0, Good, Ordinary};
+
+	enum class Category:int{Yes=0, No};
+
+	using Data = std::tuple< Feature<3,Age>,Feature<2,Work>,Feature<2,House>,Feature<3,Credit> > ;
+
+	// 特征集
+	struct FeatureSet
+	{
+		Data feature;
+		std::vector<bool> used = std::vector<bool>(4, false);  // 初始四个特征都没有用于分类
+	};
+
+	// 数据集
+	DataSet<Data, Feature<2,Category>> dataset;
+
+	dataset.Insert(Data(Age::Young, Work::No, House::No, Credit::Ordinary),Feature<2,Category>(Category::No));
+	dataset.Insert(Data(Age::Young, Work::No, House::No, Credit::Good),Feature<2,Category>(Category::No));
+	dataset.Insert(Data(Age::Young, Work::Yes, House::No, Credit::Good),Feature<2,Category>(Category::Yes));
+	dataset.Insert(Data(Age::Young, Work::Yes, House::Yes, Credit::Ordinary),Feature<2,Category>(Category::Yes));
+	dataset.Insert(Data(Age::Young, Work::No, House::No, Credit::Ordinary),Feature<2,Category>(Category::No));
+
+	dataset.Insert(Data(Age::Middle, Work::No, House::No, Credit::Ordinary),Feature<2,Category>(Category::No));
+	dataset.Insert(Data(Age::Middle, Work::No, House::No, Credit::Good),Feature<2,Category>(Category::No));
+	dataset.Insert(Data(Age::Middle, Work::Yes, House::Yes, Credit::Good),Feature<2,Category>(Category::Yes));
+	dataset.Insert(Data(Age::Middle, Work::No, House::Yes, Credit::Nice),Feature<2,Category>(Category::Yes));
+	dataset.Insert(Data(Age::Middle, Work::No, House::Yes, Credit::Nice),Feature<2,Category>(Category::Yes));
+
+	dataset.Insert(Data(Age::Old, Work::No, House::Yes, Credit::Nice),Feature<2,Category>(Category::Yes));
+	dataset.Insert(Data(Age::Old, Work::No, House::Yes, Credit::Good),Feature<2,Category>(Category::Yes));
+	dataset.Insert(Data(Age::Old, Work::Yes, House::No, Credit::Good),Feature<2,Category>(Category::Yes));
+	dataset.Insert(Data(Age::Old, Work::Yes, House::No, Credit::Nice),Feature<2,Category>(Category::Yes));
+	dataset.Insert(Data(Age::Old, Work::No, House::No, Credit::Ordinary),Feature<2,Category>(Category::No));
+
+
+
+
+	std::cout<<Entropy(dataset)<<std::endl;
+
+	std::cout<<ConditionEntropy(dataset, Feature<3,Credit>())<<std::endl;
+
+
+
 }
