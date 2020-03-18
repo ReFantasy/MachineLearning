@@ -81,7 +81,7 @@ struct find_index<0,T,Args...>
 
 // 辅助函数 简化调用
 template <typename T, typename ...Args>
-int FindIndex(std::tuple<Args...> const &t, T&&val)
+int FindElementIndexInTuple(std::tuple<Args...> const &t, T&&val)
 {
 	return find_index<sizeof...(Args), T, Args...>::call(t, std::forward<T>(val));
 }
@@ -91,14 +91,14 @@ int FindIndex(std::tuple<Args...> const &t, T&&val)
  */
 template <size_t k, typename  Tuple>
 typename std::enable_if< k==std::tuple_size<Tuple>::value >::type
-GetArgByIndex(size_t index,  const Tuple &tp)
+GetArgByIndex(size_t index,   Tuple tp)
 {
 	throw std::invalid_argument("arg index out of range");
 }
 
 template <size_t k=0, typename  Tuple>
 typename std::enable_if<(k<std::tuple_size<Tuple>::value)>::type
-GetArgByIndex(size_t index,  const Tuple &tp)
+GetArgByIndex(size_t index,  Tuple tp)
 {
 	if(k==index)
 	{

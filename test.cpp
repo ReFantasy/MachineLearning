@@ -105,6 +105,7 @@ void test()
 
 	enum class Category:int{Yes=0, No};
 
+	// 样本数据类型
 	using Data = std::tuple< Feature<3,Age>,Feature<2,Work>,Feature<2,House>,Feature<3,Credit> > ;
 
 	// 特征集
@@ -138,9 +139,18 @@ void test()
 
 
 
-	std::cout<<Entropy(dataset)<<std::endl;
+	//std::cout << EmpiricalEntropy(dataset) << std::endl;
 
-	std::cout<<ConditionEntropy(dataset, Feature<3,Credit>())<<std::endl;
+	//std::cout<<ConditionEntropy(dataset, Feature<2,House>())<<std::endl;
+
+	//std::cout<<GainInfo(dataset, Feature<2,House>())<<std::endl;
+	MaxGain(dataset, A<Data,4>{});
+	std::tuple<int, char*, double, char> a(1,"2", 3.3,'c');
+
+	for(int i=0;i<4;i++)
+	{
+		GetArgByIndex(i,a);
+	}
 
 
 
